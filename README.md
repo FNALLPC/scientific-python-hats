@@ -26,7 +26,10 @@ Please note this is not safe in general, so make sure you have the `Host cmslpc*
 
 When you log into cmslpc, add a `-L` option to your ssh command:
 
-    ssh -L localhost:8888:localhost:8888 <YOUR USERNAME>@cmslpc-sl6.fnal.gov
+    ssh -L localhost:8888:localhost:8888 <YOUR USERNAME>@cmslpc-sl6.fnal.gov  ## PLEASE PICK A DIFFERENT NUMBER
+                                                                              ## BESIDES 8888
+                                                                              ## Try picking something random so that
+                                                                              ## others don't choose the same number
 
 On cmslpc, if you do not already have one, create a HATS directory in your `~/nobackup` directory (which has a more generous quota than your home directory):
 
@@ -63,8 +66,14 @@ either way:
 
 And now start Jupyter with this command:
 
-    jupyter notebook --no-browser --port=8888 --ip localhost
+    jupyter notebook --no-browser --port=8888 --ip=127.0.0.1  ## Please change the '8888' to 
+                                                              ## the port number you chose earlier
 
+If that does not work you can use this command:
+
+    jupyter notebook --no-browser --port=8888 --ip=localhost  ## Please change the '8888' to 
+                                                              ## the port number you chose earlier
+    
 After a pause (while cmslpc loads the necessary libraries for the first time) you should see a message like the following:
 
     [I 08:22:45.871 NotebookApp] Serving notebooks from local directory: /uscms_data/d2/pivarski/CMSSW_9_0_0_pre6/src

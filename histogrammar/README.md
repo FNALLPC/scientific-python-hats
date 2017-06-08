@@ -67,9 +67,13 @@ and then clone this repository:
 
 Now start Jupyter with this command:
 
-    jupyter notebook --no-browser --port=8888 --ip localhost  ## Please change the '8888' to 
+    jupyter notebook --no-browser --port=8888 --ip=127.0.0.1  ## Please change the '8888' to 
                                                               ## the port number you chose earlier
+If that does not work you can use this command:
 
+    jupyter notebook --no-browser --port=8888 --ip=localhost   ## Please change the '8888' to 
+                                                               ## the port number you chose earlier
+    
 After a pause (while cmslpc loads the necessary libraries for the first time) you should see a message like the following:
 
     [I 08:22:45.871 NotebookApp] Serving notebooks from local directory: /uscms_data/d2/pivarski/CMSSW_9_0_0_pre6/src
