@@ -33,7 +33,6 @@ When you log into cmslpc, add a `-L` option to your ssh command:
 
 On cmslpc, if you do not already have one, create a HATS directory in your `~/nobackup` directory (which has a more generous quota than your home directory):
 
-
     mkdir ~/nobackup/HATS
 
 move to it:
@@ -125,3 +124,5 @@ and hit shift-enter in your notebook. After a few seconds, you should see output
 and in your directory tab, there's a new directory called `scientific-python-hats`. All of the tutorials and exercises are in there.
 
 From this point on, follow the instructions in the notebook of your choice (for the PyROOT and rootpy HATS@LPC start from the [README.md](https://github.com/FNALLPC/scientific-python-hats/blob/master/pyROOT_essentials/README.md) in the `pyROOT_essentials` directory.
+
+As an extra debugging note, if you choose to do the ssh -L command and the jupyter command in two separate terminals, be sure they are connected to the same cmslpc node, for example: cmslpc38.fnal.gov.

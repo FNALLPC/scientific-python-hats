@@ -29,7 +29,6 @@ When you log into cmslpc, add a `-L` option to your ssh command:
 
 On cmslpc, if you do not already have one, create a HATS directory in your `~/nobackup` directory (which has a more generous quota than your home directory):
 
-
     mkdir ~/nobackup/HATS
 
 move to it:
@@ -91,3 +90,5 @@ Copy/paste the URL it gives you into your web browser and from now on, all inter
 Jupyter and all the other Python libraries we will be studying are bundled in CMSSW. For these exercises, there is no need to install anything else.
 
 Within Jupyter, click on the `histogrammar` directory and then `pyroot-histogram-acceleration.ipynb`. You are now ready to start the tutorial.
+
+As an extra debugging note, if you choose to do the ssh -L command and the jupyter command in two separate terminals, be sure they are connected to the same cmslpc node, for example: cmslpc38.fnal.gov.
