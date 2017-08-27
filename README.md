@@ -59,8 +59,8 @@ for cshell:
     
 either way:
     
-    cmsrel CMSSW_9_0_1
-    cd CMSSW_9_0_1/src
+    cmsrel CMSSW_9_2_8
+    cd CMSSW_9_2_8/src
     cmsenv
 
 And now start Jupyter with this command:
