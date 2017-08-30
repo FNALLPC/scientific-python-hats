@@ -3,11 +3,12 @@ Executable = h_QCD_HT700to1000_0.sh
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
 Notification = Error
+transfer_input_files = /uscms_data/d1/username/HATS/pyROOT/scientific-python-hats/pyROOT_essentials/sample_code/runHatsTrees.py,  /uscms_data/d1/username/HATS/pyROOT/scientific-python-hats/pyROOT_essentials/hatsTrees_C.so
  
 arguments = $(Process)
  
-Output = condorLogs/log.QCD_HT700to1000_0.stdout
-Error = condorLogs/log.QCD_HT700to1000_0.stderr
-Log = condorLogs/log.QCD_HT700to1000_0.condorlog
+Output = condorLogs/log.QCD_HT700to1000_\$(Cluster)_\$(Process).stdout
+Error = condorLogs/log.QCD_HT700to1000_\$(Cluster)_\$(Process).stderr
+Log = condorLogs/log.QCD_HT700to1000_\$(Cluster)_\$(Process).condorlog
 Queue 4 
  
