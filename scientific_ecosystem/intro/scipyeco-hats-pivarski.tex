@@ -160,7 +160,7 @@ Numpy is the key that made scientific data analysis possible.
 
 \vspace{0.25 cm}
 \begin{uncoverenv}<4->
-Very similar to vectorization for GPUs and new CPUs: new hardware can apply the same instruction to multiple values at once. I think it's a historical irony that the same technique to speed up a high-level language is now speeding up bare metal.
+Very similar to vectorization for GPUs and new CPUs: new hardware can apply the same instruction to multiple values at once. I think it's ironic that the same technique to speed up a high-level language is now speeding up bare metal.
 \end{uncoverenv}
 
 \vspace{0.25 cm}
@@ -170,7 +170,7 @@ Very similar to vectorization for GPUs and new CPUs: new hardware can apply the 
 \vspace{-0.2 cm}
 \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
 \item How many people have performed vectorized calculations in Numpy?
-\item How many have used it at all?
+\item How many have used Numpy at all?
 \item How many haven't?
 \end{enumerate}
 \end{uncoverenv}
@@ -196,10 +196,10 @@ Numpy provides in-memory data tables with slick indexing.
 \item<5-> The rows of Pandas data frames are indexed: each row {\it means} something.
 
 \vspace{0.1 cm}
-\uncover<6->{For example, adding two data frames with different sets of keys matches the overlapping sets of keys and unions the others, more like a {\tt\small dict} than a {\tt\small list}.}
+\uncover<6->{For example, adding two data frames with different sets of keys matches the overlapping sets of keys and unions the others: more like a {\tt\small dict} than a {\tt\small list}.}
 
 \vspace{0.1 cm}
-\uncover<7->{Think ``systematics studies,'' not ``bag of events.''}
+\uncover<7->{$\longrightarrow$ Think ``systematics studies,'' not ``bag of events!''}
 
 \item<8-> Includes built-in plotting and statistics.
 
@@ -234,7 +234,7 @@ SciPy is like Python's ROOT: all the classic algorithms with references to the l
 \uncover<2->{Many of these are the original Fortran implementations, wrapped in Python.}
 
 \vspace{0.2 cm}
-\uncover<3->{Unlike Numpy and Pandas, SciPy isn't something you want fluency in--- it's a bag of functions you dig into on occasion.}
+\uncover<3->{Unlike Numpy and Pandas, SciPy isn't something you need fluency in--- it's a bag of functions you dig into on occasion.}
 
 \vspace{0.5 cm}
 \begin{uncoverenv}<4->
@@ -266,7 +266,7 @@ SciPy is like Python's ROOT: all the classic algorithms with references to the l
 \end{enumerate}
 
 \vspace{0.25 cm}
-\uncover<6->{Notebook-style interaction is {\it incredibly useful for data analysis} because you must be able to quickly iterate through mistakes, but then also finalize a procedure.}
+\uncover<6->{Notebook-style interaction is \underline{\it incredibly useful for data analysis} because you must be able to quickly iterate through mistakes, but then also finalize a procedure.}
 
 \vspace{0.25 cm}
 \uncover<7->{If you haven't decided on a text editor yet, consider \href{https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/master?urlpath=lab/tree/demo}{\textcolor{blue}{JupyterLab}}. \textcolor{gray}{\tiny (Personally, I'll die with Emacs.)}}
@@ -361,10 +361,10 @@ machine learning
 graphics, advanced plotting
 
 \vspace{0.18 cm}
-graphical interfaces, workspaces
+graphical interfaces, user workflows
 
 \vspace{0.18 cm}
-data persistence/compression
+parallel and distributed processing
 \end{center}
 
 \column{0.5\linewidth}
@@ -410,13 +410,17 @@ SymPy (symbolic algebra) & pip & sympy.ipynb \\
 \textcolor{darkorange}{\bf HEP-specific software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
 \sout{PyROOT} & \sout{ROOT} & \sout{May 23} \\
 \sout{heppy and the like} & \sout{CMSSW} & {\it\scriptsize\sout{(I don't know them well enough)}} \\
-$^*$uproot (ROOT $\to$ Numpy) & pip & uproot.ipynb \\
-$^*$histbook (histogramming) & pip & histbook.ipynb \\
-$^*$OAMap (object-array mapping) & pip & oamap.ipynb \\
+\textcolor{red}{$^*$}uproot (ROOT $\to$ Numpy) & pip & uproot.ipynb \\
+\textcolor{red}{$^*$}histbook (histogramming) & pip & histbook.ipynb \\
+\textcolor{red}{$^*$}OAMap (variable-length lists) & pip & oamap.ipynb \\
 iminuit (fitting) & pip & iminuit.ipynb \\
 GooFit (RooFit replacement) & pip & goofit.ipynb \\
 numpythia (Monte Carlo) & pip & numpythia.ipynb \\
 \end{tabular}
+
+\vspace{-3 cm}
+\hfill \tiny\textcolor{red}{$^*$made by me\hspace{-0.5 cm}}
+\vspace{3 cm}
 \end{frame}
 
 \end{document}
