@@ -1,7 +1,7 @@
 # TDataFrames Tutorial
 
 ROOT's
-(TDataFrame)[https://root.cern.ch/doc/v612/classROOT_1_1Experimental_1_1TDataFrame.html]
+[TDataFrame](https://root.cern.ch/doc/v612/classROOT_1_1Experimental_1_1TDataFrame.html)
 offers a high level interface for analyses of data stored in TTrees.
 
 In addition, multi-threading and other low-level optimisations allow users to
