@@ -19,6 +19,7 @@
 \usepackage{array}
 \usepackage{bold-extra}
 \usepackage{minted}
+\usepackage{ulem}
 \usepackage[thicklines]{cancel}
 
 \xdefinecolor{dianablue}{rgb}{0.18,0.24,0.31}
@@ -328,5 +329,94 @@ Rapid development in deep learning: proliferation of tools, not as unified anymo
 \end{uncoverenv}
 \end{frame}
 
+\begin{frame}{Scientific Python ecosystem is lacking some tools for HEP}
+\vspace{-0.5 cm}
+\begin{columns}[t]
+\column{0.5\linewidth}
+\begin{center}
+\textcolor{darkblue}{\underline{\large What we can find off-the-shelf}}
+
+\vspace{0.18 cm}
+fast data sharing with C/C++
+
+\vspace{0.18 cm}
+fast calculations of user functions
+
+\vspace{0.18 cm}
+libraries of special functions, matrix math
+
+\vspace{0.18 cm}
+fitting/minimization, integration, differentiation, interpolation
+
+\vspace{0.18 cm}
+symbolic algebra
+
+\vspace{0.18 cm}
+advanced statistics
+
+\vspace{0.18 cm}
+machine learning
+
+\vspace{0.18 cm}
+graphics, advanced plotting
+
+\vspace{0.18 cm}
+graphical interfaces, workspaces
+
+\vspace{0.18 cm}
+data persistence/compression
+\end{center}
+
+\column{0.5\linewidth}
+\begin{center}
+\textcolor{darkblue}{\underline{\large What we must develop in-house}}
+
+\vspace{0.18 cm}
+reading/writing ROOT files
+
+\vspace{0.18 cm}
+integration with collaboration frameworks
+
+\vspace{0.18 cm}
+advanced histogramming
+
+\vspace{0.18 cm}
+efficient variable-length lists \\ (e.g.\ number of electrons per event)
+
+\vspace{0.18 cm}
+HEP functions (e.g.\ boost 4-vectors)
+
+\vspace{0.18 cm}
+HEP-style limit setting
+\end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Prepared notebooks: things we can talk about}
+\vspace{0.3 cm}
+\renewcommand{\arraystretch}{1.1}
+
+\begin{tabular}{p{0.45\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.3\linewidth}}
+\textcolor{darkorange}{\bf Scientific Python software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
+Numpy & pip & numpy.ipynb \\
+Pandas & pip & pandas.ipynb \\
+Numba and Cython (code acceleration) & pip & numba-cython.ipynb \\
+SymPy (symbolic algebra) & pip & sympy.ipynb \\
+\end{tabular}
+
+\vspace{0.25 cm}
+
+\begin{tabular}{p{0.45\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.3\linewidth}}
+\textcolor{darkorange}{\bf HEP-specific software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
+\sout{PyROOT} & \sout{ROOT} & \sout{May 23} \\
+\sout{heppy and the like} & \sout{CMSSW} & {\it\scriptsize\sout{(I don't know them well enough)}} \\
+uproot (ROOT $\to$ Numpy) & pip & uproot.ipynb \\
+histbook (histogramming) & pip & histbook.ipynb \\
+OAMap (object-array mapping) & pip & oamap.ipynb \\
+iminuit (fitting) & pip & iminuit.ipynb \\
+GooFit (RooFit replacement) & pip & goofit.ipynb \\
+numpythia (Monte Carlo) & pip & numpythia.ipynb \\
+\end{tabular}
+\end{frame}
 
 \end{document}
