@@ -138,28 +138,75 @@ Unlike Java, one implementation (CPython) is much more popular than the others (
 \end{frame}
 
 \begin{frame}{Numpy arrays}
-\vspace{0.25 cm}
+\vspace{0.5 cm}
 \hfill \includegraphics[height=1.3 cm]{numpy-logo.png}
 
 \vspace{-1.3 cm}
 
-\vfill
+Python is high-level, not designed for numeric processing.
+
+Numpy is the key that made scientific data analysis possible.
+
+\vspace{0.25 cm}
+\begin{uncoverenv}<2->
+\textcolor{darkblue}{Bad old days:} numarray for large arrays, Numeric for small ones $\to$ Numpy in 2005.
+\end{uncoverenv}
+
+\vspace{0.25 cm}
+\begin{uncoverenv}<3->
+``Vectorized'' calculations: instead of doing a lot of operations on one event before moving on to the next, do one operation across a batch of events, then the next, etc., to avoid stepping through slow Python (we'll see examples).
+\end{uncoverenv}
+
+\vspace{0.25 cm}
+\begin{uncoverenv}<4->
+Very similar to vectorization for GPUs and new CPUs: new hardware can apply the same instruction to multiple values at once. I think it's a historical irony that the same technique to speed up a high-level language is now speeding up bare metal.
+\end{uncoverenv}
+
+\vspace{0.25 cm}
+\begin{uncoverenv}<5->
 \small
 \textcolor{darkblue}{Questions (show of hands):}
 \vspace{-0.2 cm}
 \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item How many people have used Numpy?
+\item How many people have performed vectorized calculations in Numpy?
+\item How many have used it at all?
 \item How many haven't?
 \end{enumerate}
+\end{uncoverenv}
 \end{frame}
 
 \begin{frame}{Pandas data frames}
-\vspace{0.25 cm}
+\vspace{0.35 cm}
 \hfill \includegraphics[height=1.3 cm]{pandas-logo.png}
 
 \vspace{-1.3 cm}
+Numpy provides in-memory data tables with slick indexing.
 
-\vfill
+\vspace{0.05 cm}
+\uncover<2->{Pandas provides in-memory data tables with slick indexing.}
+
+\vspace{0.05 cm}
+\uncover<3->{Pandas is considered an enabling technology for data science.}
+
+\vspace{0.35 cm}
+\uncover<4->{\textcolor{darkblue}{What's the big deal?}}
+
+\begin{itemize}\setlength{\itemsep}{0.1 cm}
+\item<5-> The rows of Pandas data frames are indexed: each row {\it means} something.
+
+\vspace{0.1 cm}
+\uncover<6->{For example, adding two data frames with different sets of keys matches the overlapping sets of keys and unions the others, more like a {\tt\small dict} than a {\tt\small list}.}
+
+\vspace{0.1 cm}
+\uncover<7->{Think ``systematics studies,'' not ``bag of events.''}
+
+\item<8-> Includes built-in plotting and statistics.
+
+\item<9-> Common target for user-oriented statistical packages, especially machine learning.
+\end{itemize}
+
+\vspace{0.35 cm}
+\begin{uncoverenv}<10->
 \small
 \textcolor{darkblue}{Questions (show of hands):}
 \vspace{-0.2 cm}
@@ -167,6 +214,7 @@ Unlike Java, one implementation (CPython) is much more popular than the others (
 \item How many people have used Pandas?
 \item How many haven't?
 \end{enumerate}
+\end{uncoverenv}
 \end{frame}
 
 \begin{frame}{SciPy libraries}
