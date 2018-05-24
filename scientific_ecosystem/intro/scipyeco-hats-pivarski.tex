@@ -250,17 +250,28 @@ SciPy is like Python's ROOT: all the classic algorithms with references to the l
 \end{frame}
 
 \begin{frame}{Jupyter notebooks}
-\vspace{0.25 cm}
+\vspace{0.4 cm}
 \hfill \includegraphics[height=0.8 cm]{jupyter-logo.png}
 
 \vspace{-0.8 cm}
-There are four fundamental ways to use a computer:
+\underline{There are fundamentally four ways to use a computer:}
 
+\vspace{0.15 cm}
+\begin{enumerate}
+\item<2-> \textcolor{darkblue}{Batch:} write a series of instructions (punchcards or script), \\ run the whole thing, interpret results, maybe do it again with corrections.
+\item<3-> \textcolor{darkblue}{Prompt:} submit a command, see the results, think, submit another command.
+\item<4-> \textcolor{darkblue}{Notebook:} interactivity of prompt, but overwriting mistaken commands to build up a reusable script. \textcolor{gray}{(Interleaving text and graphics is {\it optional.})}
+\item<5-> \textcolor{darkblue}{Graphical:} point-and-click or touchscreen; easy but limited in scope.
+\end{enumerate}
 
+\vspace{0.25 cm}
+\uncover<6->{Notebook-style interaction is {\it incredibly useful for data analysis} because you must be able to quickly iterate through mistakes, but then also finalize a procedure.}
 
+\vspace{0.25 cm}
+\uncover<7->{If you haven't decided on a text editor yet, consider \href{https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/master?urlpath=lab/tree/demo}{\textcolor{blue}{JupyterLab}}. \textcolor{gray}{\tiny (Personally, I'll die with Emacs.)}}
 
-
-\vfill
+\vspace{0.35 cm}
+\begin{uncoverenv}<8->
 \small
 \textcolor{darkblue}{Questions (show of hands):}
 \vspace{-0.2 cm}
@@ -268,15 +279,44 @@ There are four fundamental ways to use a computer:
 \item Is this your first time using Jupyter?
 \item Do you plan on using it for normal work?
 \end{enumerate}
+\end{uncoverenv}
+\end{frame}
+
+\begin{frame}{JupyterLab is a realistically usable editor}
+\vspace{0.35 cm}
+\includegraphics[width=0.95\linewidth]{jupyterlab.png}
 \end{frame}
 
 \begin{frame}{Scikit-Learn and other machine learning tools}
+\vspace{0.5 cm}
+SciPy has extensible ``\href{https://www.scipy.org/scikits.html}{\textcolor{blue}{scikits}}'' for specific domains: machine learning is one of these.
+
 \vspace{0.25 cm}
-\hfill \includegraphics[height=1.1 cm]{sklearn-logo.png}
+\uncover<2->{In 2012 (ancient history), Scikit-Learn unified classic machine learning algorithms in one package. (R users had to remember things like ``for Na\"ive Bayes, import e1071.'')}
 
-\vspace{-1.1 cm}
+\vspace{0.25 cm}
+\begin{uncoverenv}<3->
+Rapid development in deep learning: proliferation of tools, not as unified anymore.
 
-\vfill
+\vspace{0.15 cm}
+\mbox{ } \includegraphics[height=0.8 cm]{sklearn-logo.png}
+\hfill \includegraphics[height=0.8 cm]{pytorch-logo.png}
+\hfill \includegraphics[height=0.8 cm]{keras-logo.png}
+\hfill \includegraphics[height=1 cm]{tensorflow-logo.png}
+\hfill \includegraphics[height=0.8 cm]{caffe2-logo.png}
+\hfill \includegraphics[height=0.8 cm]{gluon-logo.png} \mbox{ }
+
+\vspace{0.15 cm}
+\mbox{ } \includegraphics[height=0.8 cm]{chainer-logo.png}
+\hfill \includegraphics[height=0.8 cm]{cntk-logo.png}
+\hfill \includegraphics[height=0.8 cm]{lasagne-logo.png}
+\hfill \includegraphics[height=0.8 cm]{onnx-logo.png}
+\hfill \includegraphics[height=0.8 cm]{cesium-logo.png}
+\hfill \includegraphics[height=0.8 cm]{xgboost-logo.png} \mbox{ }
+\end{uncoverenv}
+
+\vspace{0.5 cm}
+\begin{uncoverenv}<4->
 \small
 \textcolor{darkblue}{Questions (show of hands):}
 \vspace{-0.2 cm}
@@ -285,9 +325,8 @@ There are four fundamental ways to use a computer:
 \item Who has used TMVA (in ROOT, possibly through PyROOT)?
 \item Who hasn't?
 \end{enumerate}
+\end{uncoverenv}
 \end{frame}
 
-\begin{frame}{What makes software ``Pythonic?''}
-\end{frame}
 
 \end{document}
