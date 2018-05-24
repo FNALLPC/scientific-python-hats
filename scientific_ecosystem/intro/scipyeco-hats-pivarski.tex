@@ -97,13 +97,35 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{Python the language and CPython the implementation}
-\vspace{0.25 cm}
+\begin{frame}[fragile]{Python the language and CPython the implementation}
+\vspace{0.5 cm}
 \hfill \includegraphics[height=1 cm]{python-logo.png}
 
 \vspace{-1 cm}
+\textcolor{darkblue}{Exercise:} open a Python session {\scriptsize (you all have one, except maybe Windows)}
 
-\vfill
+\small
+\begin{minted}{python}
+>>> import antigravity
+\end{minted}
+\normalsize
+
+and see what happens\ldots
+
+\vspace{0.5 cm}
+\begin{uncoverenv}<2->
+Like \LaTeX, the microsyntax is extremely usable: easy to get started on small things.
+
+(Also like \LaTeX, large programs are awkward.)
+\end{uncoverenv}
+
+\vspace{0.5 cm}
+\begin{uncoverenv}<3->
+Unlike Java, one implementation (CPython) is much more popular than the others (PyPy, Jython, IronPython, CLPython\ldots), with good bindings to C/C++.
+\end{uncoverenv}
+
+\vspace{0.5 cm}
+\begin{uncoverenv}<4->
 \small
 \textcolor{darkblue}{Questions (show of hands):}
 \vspace{-0.2 cm}
@@ -112,6 +134,7 @@
 \item A little?
 \item Not at all?
 \end{enumerate}
+\end{uncoverenv}
 \end{frame}
 
 \begin{frame}{Numpy arrays}
