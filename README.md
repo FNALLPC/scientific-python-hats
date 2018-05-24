@@ -16,7 +16,6 @@ The setup/configuration of this HATS tutorial is documented at the [HATSatLPCSet
 
 Once you've completed the setup instructions, information on the separate tutorials can be found in the following subdirectories beneath `scientific-python-hats`:
 
-* [Scientific Python Ecosystem](scientific-python-ecosystem/README.md)
 * [PyROOT](pyROOT_essentials/README.md)
 * [rootpy](rootpy_essentials/README.md)
-* [Histogrammar](histogrammar/README.md)
+* [TDataFrames](TDataFrames/README.md)
