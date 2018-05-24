@@ -1,2 +1,4 @@
 cmssw-env/
 .ipynb_checkpoints/
+rootpy_essentials/output.root
+rootpy_essentials/histograms.root
