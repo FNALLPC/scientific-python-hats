@@ -48,7 +48,8 @@ from ROOT import *
 ###
 chain = TChain(options.inTreeName)
 inFiles = []
-for inFile in filter(None,popen("xrdfs root://cmseos.fnal.gov/ ls -u "+options.inDir).read().split('\n')):
+for inFile in filter(None,popen("xrdfs root://red-gridftp3.unl.edu/ ls -u "+options.inDir).read().split('\n')):
+  inFile.replace('red-gridftp3.unl.edu', 'cmsxrootd.fnal.gov')
   if ".root" in inFile:
     inFiles.append(inFile)
 for sample in inFiles:
