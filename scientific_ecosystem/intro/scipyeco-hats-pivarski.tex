@@ -72,13 +72,13 @@
 \includegraphics[width=\linewidth]{separation-2.png}
 \end{frame}
 
-\begin{frame}{Much of the Big Data software is developed for use in Python}
-\vspace{0.5 cm}
-\includegraphics[width=\linewidth]{python-r-cpp-googletrends-data.png}
+%% \begin{frame}{Much of the Big Data software is developed for use in Python}
+%% \vspace{0.5 cm}
+%% \includegraphics[width=\linewidth]{python-r-cpp-googletrends-data.png}
 
-\vspace{1 cm}
-\includegraphics[width=\linewidth]{python-r-cpp-googletrends-dataset.png}
-\end{frame}
+%% \vspace{1 cm}
+%% \includegraphics[width=\linewidth]{python-r-cpp-googletrends-dataset.png}
+%% \end{frame}
 
 \begin{frame}{Much of the Big Data software is developed for use in Python}
 \vspace{0.5 cm}
@@ -106,398 +106,408 @@
 \end{frame}
 
 \begin{frame}{}
-\begin{center}
-\LARGE \textcolor{darkblue}{Key components of the ecosystem}
-\end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Python}
-\vspace{0.5 cm}
-\hfill \includegraphics[height=1 cm]{python-logo.png}
-
-\vspace{-1 cm}
-\begin{itemize}\setlength{\itemsep}{0.25 cm}
-\item Convenient microsyntax, ``like executable pseudocode.''
-
-Just for fun, try:
-
-\small
-\begin{minted}{python}
->>> import antigravity
-\end{minted}
-\normalsize
-
-\item<2-> Abstraction and dynamism conspire to make programs written in Python slow.
-
-\item<3-> However, CPython (the most popular implementation of Python) has good bindings to C/C++. Scientific libraries are often written as a compiled number-crunching core with Pythonic interfaces.
-
-\item<4-> The work of a data analyst is to drive the fast kernels from slow Python, or to glue interfaces to interfaces.
-\end{itemize}
-
-\vspace{0.25 cm}
-\begin{uncoverenv}<5->
-\small
-\textcolor{darkblue}{Questions (show of hands):}
-\vspace{-0.2 cm}
-\begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item How many people have used Python a lot?
-\item A little?
-\item Not at all?
-\end{enumerate}
-\end{uncoverenv}
-\end{frame}
-
-\begin{frame}{Numpy}
-\vspace{0.5 cm}
-\hfill \includegraphics[height=1.3 cm]{numpy-logo.png}
-
-\vspace{-1.3 cm}
-Python wasn't practical for science before Numpy.
-
-(Numarray vs.\ Numeric split community $\to$ Numpy in 2006.)
-
-\vspace{0.35 cm}
-\begin{uncoverenv}<2->
-\textcolor{darkblue}{Promotes ``vectorized'' calculations.}
-
-\begin{center}
-\begin{minipage}{0.85\linewidth}
-Taco chef can make 8~tacos of the same type in the same time as 1.5~tacos.
-
-\vspace{0.2 cm}
-If customers order different types of tacos \`a la carte, the chef will take a lot longer than if orders of the same type are batched.
-\end{minipage}
-\end{center}
-\end{uncoverenv}
-
-\vspace{0.15 cm}
-\begin{columns}[t]
-\column{0.46\linewidth}
-\begin{uncoverenv}<3->
-\textcolor{darkblue}{In Numpy, $\sqrt{x^2 + y^2}$ is}
-\begin{enumerate}
-\item square all the $x$ (for all events)
-\item square all the $y$ (for all events)
-\item add them (for all events)
-\item take the square root (for all events)
-\end{enumerate}
-\end{uncoverenv}
-
-\column{0.46\linewidth}
-\uncover<4->{Dealing with a single Python instruction takes a lot longer than squaring or adding hundreds of numbers, so ``batching math'' saves time.}
-
-\vspace{0.15 cm}
-\uncover<5->{\textcolor{darkblue}{\underline{Similar} to hardware vectorization:} optimizing for GPUs and modern CPUs.}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Numpy}
-\vspace{0.5 cm}
-Algorithms that transform one input into one output are easy to vectorize.
-
-\vspace{0.15 cm}
-\mbox{\hspace{0.5 cm}}$\longrightarrow$ flat ntuples (tables of numbers) are good for Numpy.
-
-\vspace{0.25 cm}
-\begin{uncoverenv}<2->
-Algorithms with nested for loops are harder to think about.
-
-\vspace{0.15 cm}
-\mbox{\hspace{0.5 cm}}$\longrightarrow$ e.g.\ TTrees containing {\tt\small std::vectors}
-\end{uncoverenv}
-
-\vspace{0.25 cm}
-\begin{center}
-\begin{minipage}{0.85\linewidth}
-\uncover<3->{\textcolor{darkblue}{OAMap (object-array mapping)} is a framework to bridge the two worlds: you can write standard for-loop/object-like code and execute it without performance loss on arrays.}
-\end{minipage}
-\end{center}
-
-\vspace{0.25 cm}
-\begin{uncoverenv}<4->
-\small
-\textcolor{darkblue}{Questions (show of hands):}
-\vspace{-0.2 cm}
-\begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item How many people have performed vectorized calculations in Numpy?
-\item How many have used Numpy at all?
-\item How many haven't?
-\end{enumerate}
-\end{uncoverenv}
-\end{frame}
-
-\begin{frame}{SciPy}
-\vspace{0.35 cm}
-\hfill \includegraphics[height=1 cm]{scipy-logo.png}
-
-\vspace{-1 cm}
-\begin{columns}[b]
-\column{0.5\linewidth}
-\includegraphics[width=\linewidth]{scipy-docs.png}
-
-\column{0.5\linewidth}
-SciPy is a big bag of numeric algorithms with references to the literature.
-
-\vspace{0.2 cm}
-\uncover<2->{Many of these are the original Fortran implementations, wrapped in Python.}
-
-\vspace{0.2 cm}
-\uncover<3->{It can be useful to be fluent in Numpy, but SciPy is just something you dig into to find an algorithm.}
-
-\vspace{0.5 cm}
-\begin{uncoverenv}<4->
-\small
-\textcolor{darkblue}{Questions (show of hands):}
-\vspace{-0.2 cm}
-\begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item How many people have used at least one function from SciPy?
-\item How many haven't?
-\end{enumerate}
-\end{uncoverenv}
-\vspace{0.05 cm}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Pandas}
-\vspace{0.3 cm}
-\hfill \includegraphics[height=1.3 cm]{pandas-logo.png}
-
-\vspace{-1.3 cm}
-Pandas is a convenient interface for manipulating flat ntuples.
-\begin{itemize}
-\item built-in plotting and statistics
-\item but really flat: no {\tt\small std::vector}
-\item and small: must fit in memory!
-\end{itemize}
-
-\vspace{0.25 cm}
-\uncover<2->{At first, this appears to be an impoverished TTree. The difference is that Pandas data frames are indexed: each row {\it means} something.}
-
-\vspace{0.25 cm}
-\uncover<3->{\textcolor{darkblue}{Example: calibration.} Each data frame represents a summary of detector response from a subsample of a big dataset (like, histograms). Not all subsamples have data for all detectors. Data frames are indexed by detector id, so combining them matches detector id to detector id and skips missing ids.}
-
-\vspace{0.25 cm}
-\uncover<4->{\mbox{\hspace{0.5 cm}}$\longrightarrow$ Think ``systematics studies,'' not ``bag of events!''}
-
-\vspace{0.25 cm}
-\begin{uncoverenv}<5->
-\small
-\textcolor{darkblue}{Questions (show of hands):}
-\vspace{-0.2 cm}
-\begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item How many people have used Pandas?
-\item How many haven't?
-\end{enumerate}
-\end{uncoverenv}
-\end{frame}
-
-\begin{frame}{Histogramming}
-\vspace{0.5 cm}
-
-Despite the use of the word ``TDataFrame'' in ROOT to manipulate streams of events, Pandas data frames are more like programmatic spreadsheets than streams of events.
-
-\vspace{0.25 cm}
-\mbox{\hspace{0.5 cm}}$\longrightarrow$ Not a good solution for reducing events to histograms.
-
-\vspace{0.25 cm}
-For a traditional HEP workflow $\to$ scientific Python ecosystem:
-\begin{enumerate}
-\item fill histograms in ROOT and load them in PyROOT/rootpy or \textcolor{darkblue}{uproot}
-\item use \textcolor{darkblue}{uproot} to convert ROOT events to Numpy and 
-
-\end{enumerate}
 
 
 
 
-
-Numpy and Pandas have rudimentary {\tt\small histogram} methods, but the ``in memory'' requirement and lack of features would be limiting.
-
-\vspace{0.25 cm}
-I'll present two packages I wrote to fill this gap:
-\begin{description}
-\item[uproot:] reads ROOT files and translates TTree data into Numpy arrays
-\item[histbook:] fills histograms as Numpy/Pandas tables with plotting and conversion to ROOT histograms
-\end{description}
-\end{frame}
-
-\begin{frame}{Scikit-Learn and other machine learning tools}
-\vspace{0.5 cm}
-SciPy has extensible ``\href{https://www.scipy.org/scikits.html}{\textcolor{blue}{scikits}}'' for specific domains: machine learning is one of these.
-
-\vspace{0.25 cm}
-\uncover<2->{In 2012 (ancient history), Scikit-Learn unified classic machine learning algorithms in one package. (R users had to remember things like ``for Na\"ive Bayes, import e1071.'')}
-
-\vspace{0.25 cm}
-\begin{uncoverenv}<3->
-Rapid development in deep learning: proliferation of tools, not as unified anymore. Many use Pandas as an interface.
-
-\vspace{0.15 cm}
-\mbox{ } \includegraphics[height=0.8 cm]{sklearn-logo.png}
-\hfill \includegraphics[height=0.8 cm]{pytorch-logo.png}
-\hfill \includegraphics[height=0.8 cm]{keras-logo.png}
-\hfill \includegraphics[height=1 cm]{tensorflow-logo.png}
-\hfill \includegraphics[height=0.8 cm]{caffe2-logo.png}
-\hfill \includegraphics[height=0.8 cm]{gluon-logo.png} \mbox{ }
-
-\vspace{0.15 cm}
-\mbox{ } \includegraphics[height=0.8 cm]{chainer-logo.png}
-\hfill \includegraphics[height=0.8 cm]{cntk-logo.png}
-\hfill \includegraphics[height=0.8 cm]{lasagne-logo.png}
-\hfill \includegraphics[height=0.8 cm]{onnx-logo.png}
-\hfill \includegraphics[height=0.8 cm]{cesium-logo.png}
-\hfill \includegraphics[height=0.8 cm]{xgboost-logo.png} \mbox{ }
-\end{uncoverenv}
-
-\vspace{0.5 cm}
-\begin{uncoverenv}<4->
-\small
-\textcolor{darkblue}{Questions (show of hands):}
-\vspace{-0.2 cm}
-\begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item Who has used a machine learning package in Python (not TMVA)?
-\item Who has used TMVA (in ROOT, possibly through PyROOT)?
-\item Who hasn't?
-\end{enumerate}
-\end{uncoverenv}
-\end{frame}
-
-\begin{frame}{Jupyter notebooks}
-\vspace{0.4 cm}
-\hfill \includegraphics[height=0.8 cm]{jupyter-logo.png}
-
-\vspace{-0.8 cm}
-\underline{There are fundamentally four ways to use a computer:}
-
-\vspace{0.15 cm}
-\begin{enumerate}
-\item<2-> \textcolor{darkblue}{Batch:} write a series of instructions (punchcards or script), \\ run the whole thing, interpret results, maybe do it again with corrections.
-\item<3-> \textcolor{darkblue}{Prompt:} submit a command, see the results, think, submit another command.
-\item<4-> \textcolor{darkblue}{Notebook:} interactivity of prompt, but overwriting mistaken commands to build up a reusable script. \textcolor{gray}{(Interleaving text and graphics is {\it optional.})}
-\item<5-> \textcolor{darkblue}{Graphical:} point-and-click or touchscreen; easy but limited in scope.
-\end{enumerate}
-
-\vspace{0.25 cm}
-\uncover<6->{Notebook-style interaction is \underline{\it incredibly useful for data analysis} because you must be able to quickly iterate through mistakes, but then also finalize a procedure.}
-
-\vspace{0.25 cm}
-\uncover<7->{If you haven't decided on a text editor yet, consider \href{https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/master?urlpath=lab/tree/demo}{\textcolor{blue}{JupyterLab}}. \textcolor{gray}{\tiny (Personally, I'll die with Emacs.)}}
-
-\vspace{0.35 cm}
-\begin{uncoverenv}<8->
-\small
-\textcolor{darkblue}{Questions (show of hands):}
-\vspace{-0.2 cm}
-\begin{enumerate}\setlength{\itemsep}{-0.1 cm}
-\item Is this your first time using Jupyter?
-\item Do you plan on using it for normal work?
-\end{enumerate}
-\end{uncoverenv}
-\end{frame}
-
-\begin{frame}{JupyterLab is a realistically usable editor}
-\vspace{0.35 cm}
-\includegraphics[width=0.95\linewidth]{jupyterlab.png}
 \end{frame}
 
 
 
 
+%% \begin{frame}{}
+%% \begin{center}
+%% \LARGE \textcolor{darkblue}{Key components of the ecosystem}
+%% \end{center}
+%% \end{frame}
 
+%% \begin{frame}[fragile]{Python}
+%% \vspace{0.5 cm}
+%% \hfill \includegraphics[height=1 cm]{python-logo.png}
 
+%% \vspace{-1 cm}
+%% \begin{itemize}\setlength{\itemsep}{0.25 cm}
+%% \item Convenient microsyntax, ``like executable pseudocode.''
 
-%% \begin{frame}{Scientific Python ecosystem is lacking some tools for HEP}
-%% \vspace{-0.5 cm}
+%% Just for fun, try:
+
+%% \small
+%% \begin{minted}{python}
+%% >>> import antigravity
+%% \end{minted}
+%% \normalsize
+
+%% \item<2-> Abstraction and dynamism conspire to make programs written in Python slow.
+
+%% \item<3-> However, CPython (the most popular implementation of Python) has good bindings to C/C++. Scientific libraries are often written as a compiled number-crunching core with Pythonic interfaces.
+
+%% \item<4-> The work of a data analyst is to drive the fast kernels from slow Python, or to glue interfaces to interfaces.
+%% \end{itemize}
+
+%% \vspace{0.25 cm}
+%% \begin{uncoverenv}<5->
+%% \small
+%% \textcolor{darkblue}{Questions (show of hands):}
+%% \vspace{-0.2 cm}
+%% \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
+%% \item How many people have used Python a lot?
+%% \item A little?
+%% \item Not at all?
+%% \end{enumerate}
+%% \end{uncoverenv}
+%% \end{frame}
+
+%% \begin{frame}{Numpy}
+%% \vspace{0.5 cm}
+%% \hfill \includegraphics[height=1.3 cm]{numpy-logo.png}
+
+%% \vspace{-1.3 cm}
+%% Python wasn't practical for science before Numpy.
+
+%% (Numarray vs.\ Numeric split community $\to$ Numpy in 2006.)
+
+%% \vspace{0.35 cm}
+%% \begin{uncoverenv}<2->
+%% \textcolor{darkblue}{Promotes ``vectorized'' calculations.}
+
+%% \begin{center}
+%% \begin{minipage}{0.85\linewidth}
+%% Taco chef can make 8~tacos of the same type in the same time as 1.5~tacos.
+
+%% \vspace{0.2 cm}
+%% If customers order different types of tacos \`a la carte, the chef will take a lot longer than if orders of the same type are batched.
+%% \end{minipage}
+%% \end{center}
+%% \end{uncoverenv}
+
+%% \vspace{0.15 cm}
 %% \begin{columns}[t]
-%% \column{0.5\linewidth}
-%% \begin{center}
-%% \textcolor{darkblue}{\underline{\large What we can find off-the-shelf}}
+%% \column{0.46\linewidth}
+%% \begin{uncoverenv}<3->
+%% \textcolor{darkblue}{In Numpy, $\sqrt{x^2 + y^2}$ is}
+%% \begin{enumerate}
+%% \item square all the $x$ (for all events)
+%% \item square all the $y$ (for all events)
+%% \item add them (for all events)
+%% \item take the square root (for all events)
+%% \end{enumerate}
+%% \end{uncoverenv}
 
-%% \vspace{0.18 cm}
-%% fast data sharing with C/C++
+%% \column{0.46\linewidth}
+%% \uncover<4->{Dealing with a single Python instruction takes a lot longer than squaring or adding hundreds of numbers, so ``batching math'' saves time.}
 
-%% \vspace{0.18 cm}
-%% fast calculations of user functions
-
-%% \vspace{0.18 cm}
-%% libraries of special functions, matrix math
-
-%% \vspace{0.18 cm}
-%% fitting/minimization, integration, differentiation, interpolation
-
-%% \vspace{0.18 cm}
-%% symbolic algebra
-
-%% \vspace{0.18 cm}
-%% advanced statistics
-
-%% \vspace{0.18 cm}
-%% machine learning
-
-%% \vspace{0.18 cm}
-%% graphics, advanced plotting
-
-%% \vspace{0.18 cm}
-%% graphical interfaces, user workflows
-
-%% \vspace{0.18 cm}
-%% parallel and distributed processing
-%% \end{center}
-
-%% \column{0.5\linewidth}
-%% \begin{center}
-%% \textcolor{darkblue}{\underline{\large What we must develop in-house}}
-
-%% \vspace{0.18 cm}
-%% reading/writing ROOT files
-
-%% \vspace{0.18 cm}
-%% integration with collaboration frameworks
-
-%% \vspace{0.18 cm}
-%% advanced histogramming
-
-%% \vspace{0.18 cm}
-%% efficient variable-length lists \\ (e.g.\ number of electrons per event)
-
-%% \vspace{0.18 cm}
-%% HEP functions (e.g.\ boost 4-vectors)
-
-%% \vspace{0.18 cm}
-%% HEP-style limit setting
-%% \end{center}
+%% \vspace{0.15 cm}
+%% \uncover<5->{\textcolor{darkblue}{\underline{Similar} to hardware vectorization:} optimizing for GPUs and modern CPUs.}
 %% \end{columns}
 %% \end{frame}
 
-%% \begin{frame}{Prepared notebooks: things we can talk about}
-%% \vspace{0.3 cm}
-%% \renewcommand{\arraystretch}{1.1}
+%% \begin{frame}{Numpy}
+%% \vspace{0.5 cm}
+%% Algorithms that transform one input into one output are easy to vectorize.
 
-%% \begin{tabular}{p{0.45\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.3\linewidth}}
-%% \textcolor{darkorange}{\bf Scientific Python software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
-%% Numpy & pip & numpy.ipynb \\
-%% Pandas & pip & pandas.ipynb \\
-%% Numba and Cython (code acceleration) & pip & numba-cython.ipynb \\
-%% SymPy (symbolic algebra) & pip & sympy.ipynb \\
-%% \end{tabular}
+%% \vspace{0.15 cm}
+%% \mbox{\hspace{0.5 cm}}$\longrightarrow$ flat ntuples (tables of numbers) are good for Numpy.
 
 %% \vspace{0.25 cm}
+%% \begin{uncoverenv}<2->
+%% Algorithms with nested for loops are harder to think about.
 
-%% \begin{tabular}{p{0.45\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.3\linewidth}}
-%% \textcolor{darkorange}{\bf HEP-specific software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
-%% \sout{PyROOT} & \sout{ROOT} & \sout{May 23} \\
-%% \sout{heppy and the like} & \sout{CMSSW} & {\it\scriptsize\sout{(I don't know them well enough)}} \\
-%% \textcolor{red}{$^*$}uproot (ROOT $\to$ Numpy) & pip & uproot.ipynb \\
-%% \textcolor{red}{$^*$}histbook (histogramming) & pip & histbook.ipynb \\
-%% \textcolor{red}{$^*$}OAMap (variable-length lists) & pip & oamap.ipynb \\
-%% iminuit (fitting) & pip & iminuit.ipynb \\
-%% GooFit (RooFit replacement) & pip & goofit.ipynb \\
-%% numpythia (Monte Carlo) & pip & numpythia.ipynb \\
-%% \end{tabular}
+%% \vspace{0.15 cm}
+%% \mbox{\hspace{0.5 cm}}$\longrightarrow$ e.g.\ TTrees containing {\tt\small std::vectors}
+%% \end{uncoverenv}
 
-%% \vspace{-3 cm}
-%% \hfill \tiny\textcolor{red}{$^*$made by me\hspace{-0.5 cm}}
-%% \vspace{3 cm}
+%% \vspace{0.25 cm}
+%% \begin{center}
+%% \begin{minipage}{0.85\linewidth}
+%% \uncover<3->{\textcolor{darkblue}{OAMap (object-array mapping)} is a framework to bridge the two worlds: you can write standard for-loop/object-like code and execute it without performance loss on arrays.}
+%% \end{minipage}
+%% \end{center}
+
+%% \vspace{0.25 cm}
+%% \begin{uncoverenv}<4->
+%% \small
+%% \textcolor{darkblue}{Questions (show of hands):}
+%% \vspace{-0.2 cm}
+%% \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
+%% \item How many people have performed vectorized calculations in Numpy?
+%% \item How many have used Numpy at all?
+%% \item How many haven't?
+%% \end{enumerate}
+%% \end{uncoverenv}
 %% \end{frame}
+
+%% \begin{frame}{SciPy}
+%% \vspace{0.35 cm}
+%% \hfill \includegraphics[height=1 cm]{scipy-logo.png}
+
+%% \vspace{-1 cm}
+%% \begin{columns}[b]
+%% \column{0.5\linewidth}
+%% \includegraphics[width=\linewidth]{scipy-docs.png}
+
+%% \column{0.5\linewidth}
+%% SciPy is a big bag of numeric algorithms with references to the literature.
+
+%% \vspace{0.2 cm}
+%% \uncover<2->{Many of these are the original Fortran implementations, wrapped in Python.}
+
+%% \vspace{0.2 cm}
+%% \uncover<3->{It can be useful to be fluent in Numpy, but SciPy is just something you dig into to find an algorithm.}
+
+%% \vspace{0.5 cm}
+%% \begin{uncoverenv}<4->
+%% \small
+%% \textcolor{darkblue}{Questions (show of hands):}
+%% \vspace{-0.2 cm}
+%% \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
+%% \item How many people have used at least one function from SciPy?
+%% \item How many haven't?
+%% \end{enumerate}
+%% \end{uncoverenv}
+%% \vspace{0.05 cm}
+%% \end{columns}
+%% \end{frame}
+
+%% \begin{frame}{Pandas}
+%% \vspace{0.3 cm}
+%% \hfill \includegraphics[height=1.3 cm]{pandas-logo.png}
+
+%% \vspace{-1.3 cm}
+%% Pandas is a convenient interface for manipulating flat ntuples.
+%% \begin{itemize}
+%% \item built-in plotting and statistics
+%% \item but really flat: no {\tt\small std::vector}
+%% \item and small: must fit in memory!
+%% \end{itemize}
+
+%% \vspace{0.25 cm}
+%% \uncover<2->{At first, this appears to be an impoverished TTree. The difference is that Pandas data frames are indexed: each row {\it means} something.}
+
+%% \vspace{0.25 cm}
+%% \uncover<3->{\textcolor{darkblue}{Example: calibration.} Each data frame represents a summary of detector response from a subsample of a big dataset (like, histograms). Not all subsamples have data for all detectors. Data frames are indexed by detector id, so combining them matches detector id to detector id and skips missing ids.}
+
+%% \vspace{0.25 cm}
+%% \uncover<4->{\mbox{\hspace{0.5 cm}}$\longrightarrow$ Think ``systematics studies,'' not ``bag of events!''}
+
+%% \vspace{0.25 cm}
+%% \begin{uncoverenv}<5->
+%% \small
+%% \textcolor{darkblue}{Questions (show of hands):}
+%% \vspace{-0.2 cm}
+%% \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
+%% \item How many people have used Pandas?
+%% \item How many haven't?
+%% \end{enumerate}
+%% \end{uncoverenv}
+%% \end{frame}
+
+%% \begin{frame}{Histogramming}
+%% \vspace{0.5 cm}
+
+%% Despite the use of the word ``TDataFrame'' in ROOT to manipulate streams of events, Pandas data frames are more like programmatic spreadsheets than streams of events.
+
+%% \vspace{0.25 cm}
+%% \mbox{\hspace{0.5 cm}}$\longrightarrow$ Not a good solution for reducing events to histograms.
+
+%% \vspace{0.25 cm}
+%% For a traditional HEP workflow $\to$ scientific Python ecosystem:
+%% \begin{enumerate}
+%% \item fill histograms in ROOT and load them in PyROOT/rootpy or \textcolor{darkblue}{uproot}
+%% \item use \textcolor{darkblue}{uproot} to convert ROOT events to Numpy and 
+
+%% \end{enumerate}
+
+
+
+
+
+%% Numpy and Pandas have rudimentary {\tt\small histogram} methods, but the ``in memory'' requirement and lack of features would be limiting.
+
+%% \vspace{0.25 cm}
+%% I'll present two packages I wrote to fill this gap:
+%% \begin{description}
+%% \item[uproot:] reads ROOT files and translates TTree data into Numpy arrays
+%% \item[histbook:] fills histograms as Numpy/Pandas tables with plotting and conversion to ROOT histograms
+%% \end{description}
+%% \end{frame}
+
+%% \begin{frame}{Scikit-Learn and other machine learning tools}
+%% \vspace{0.5 cm}
+%% SciPy has extensible ``\href{https://www.scipy.org/scikits.html}{\textcolor{blue}{scikits}}'' for specific domains: machine learning is one of these.
+
+%% \vspace{0.25 cm}
+%% \uncover<2->{In 2012 (ancient history), Scikit-Learn unified classic machine learning algorithms in one package. (R users had to remember things like ``for Na\"ive Bayes, import e1071.'')}
+
+%% \vspace{0.25 cm}
+%% \begin{uncoverenv}<3->
+%% Rapid development in deep learning: proliferation of tools, not as unified anymore. Many use Pandas as an interface.
+
+%% \vspace{0.15 cm}
+%% \mbox{ } \includegraphics[height=0.8 cm]{sklearn-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{pytorch-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{keras-logo.png}
+%% \hfill \includegraphics[height=1 cm]{tensorflow-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{caffe2-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{gluon-logo.png} \mbox{ }
+
+%% \vspace{0.15 cm}
+%% \mbox{ } \includegraphics[height=0.8 cm]{chainer-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{cntk-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{lasagne-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{onnx-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{cesium-logo.png}
+%% \hfill \includegraphics[height=0.8 cm]{xgboost-logo.png} \mbox{ }
+%% \end{uncoverenv}
+
+%% \vspace{0.5 cm}
+%% \begin{uncoverenv}<4->
+%% \small
+%% \textcolor{darkblue}{Questions (show of hands):}
+%% \vspace{-0.2 cm}
+%% \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
+%% \item Who has used a machine learning package in Python (not TMVA)?
+%% \item Who has used TMVA (in ROOT, possibly through PyROOT)?
+%% \item Who hasn't?
+%% \end{enumerate}
+%% \end{uncoverenv}
+%% \end{frame}
+
+%% \begin{frame}{Jupyter notebooks}
+%% \vspace{0.4 cm}
+%% \hfill \includegraphics[height=0.8 cm]{jupyter-logo.png}
+
+%% \vspace{-0.8 cm}
+%% \underline{There are fundamentally four ways to use a computer:}
+
+%% \vspace{0.15 cm}
+%% \begin{enumerate}
+%% \item<2-> \textcolor{darkblue}{Batch:} write a series of instructions (punchcards or script), \\ run the whole thing, interpret results, maybe do it again with corrections.
+%% \item<3-> \textcolor{darkblue}{Prompt:} submit a command, see the results, think, submit another command.
+%% \item<4-> \textcolor{darkblue}{Notebook:} interactivity of prompt, but overwriting mistaken commands to build up a reusable script. \textcolor{gray}{(Interleaving text and graphics is {\it optional.})}
+%% \item<5-> \textcolor{darkblue}{Graphical:} point-and-click or touchscreen; easy but limited in scope.
+%% \end{enumerate}
+
+%% \vspace{0.25 cm}
+%% \uncover<6->{Notebook-style interaction is \underline{\it incredibly useful for data analysis} because you must be able to quickly iterate through mistakes, but then also finalize a procedure.}
+
+%% \vspace{0.25 cm}
+%% \uncover<7->{If you haven't decided on a text editor yet, consider \href{https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/master?urlpath=lab/tree/demo}{\textcolor{blue}{JupyterLab}}. \textcolor{gray}{\tiny (Personally, I'll die with Emacs.)}}
+
+%% \vspace{0.35 cm}
+%% \begin{uncoverenv}<8->
+%% \small
+%% \textcolor{darkblue}{Questions (show of hands):}
+%% \vspace{-0.2 cm}
+%% \begin{enumerate}\setlength{\itemsep}{-0.1 cm}
+%% \item Is this your first time using Jupyter?
+%% \item Do you plan on using it for normal work?
+%% \end{enumerate}
+%% \end{uncoverenv}
+%% \end{frame}
+
+%% \begin{frame}{JupyterLab is a realistically usable editor}
+%% \vspace{0.35 cm}
+%% \includegraphics[width=0.95\linewidth]{jupyterlab.png}
+%% \end{frame}
+
+
+
+
+
+
+
+%% %% \begin{frame}{Scientific Python ecosystem is lacking some tools for HEP}
+%% %% \vspace{-0.5 cm}
+%% %% \begin{columns}[t]
+%% %% \column{0.5\linewidth}
+%% %% \begin{center}
+%% %% \textcolor{darkblue}{\underline{\large What we can find off-the-shelf}}
+
+%% %% \vspace{0.18 cm}
+%% %% fast data sharing with C/C++
+
+%% %% \vspace{0.18 cm}
+%% %% fast calculations of user functions
+
+%% %% \vspace{0.18 cm}
+%% %% libraries of special functions, matrix math
+
+%% %% \vspace{0.18 cm}
+%% %% fitting/minimization, integration, differentiation, interpolation
+
+%% %% \vspace{0.18 cm}
+%% %% symbolic algebra
+
+%% %% \vspace{0.18 cm}
+%% %% advanced statistics
+
+%% %% \vspace{0.18 cm}
+%% %% machine learning
+
+%% %% \vspace{0.18 cm}
+%% %% graphics, advanced plotting
+
+%% %% \vspace{0.18 cm}
+%% %% graphical interfaces, user workflows
+
+%% %% \vspace{0.18 cm}
+%% %% parallel and distributed processing
+%% %% \end{center}
+
+%% %% \column{0.5\linewidth}
+%% %% \begin{center}
+%% %% \textcolor{darkblue}{\underline{\large What we must develop in-house}}
+
+%% %% \vspace{0.18 cm}
+%% %% reading/writing ROOT files
+
+%% %% \vspace{0.18 cm}
+%% %% integration with collaboration frameworks
+
+%% %% \vspace{0.18 cm}
+%% %% advanced histogramming
+
+%% %% \vspace{0.18 cm}
+%% %% efficient variable-length lists \\ (e.g.\ number of electrons per event)
+
+%% %% \vspace{0.18 cm}
+%% %% HEP functions (e.g.\ boost 4-vectors)
+
+%% %% \vspace{0.18 cm}
+%% %% HEP-style limit setting
+%% %% \end{center}
+%% %% \end{columns}
+%% %% \end{frame}
+
+%% %% \begin{frame}{Prepared notebooks: things we can talk about}
+%% %% \vspace{0.3 cm}
+%% %% \renewcommand{\arraystretch}{1.1}
+
+%% %% \begin{tabular}{p{0.45\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.3\linewidth}}
+%% %% \textcolor{darkorange}{\bf Scientific Python software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
+%% %% Numpy & pip & numpy.ipynb \\
+%% %% Pandas & pip & pandas.ipynb \\
+%% %% Numba and Cython (code acceleration) & pip & numba-cython.ipynb \\
+%% %% SymPy (symbolic algebra) & pip & sympy.ipynb \\
+%% %% \end{tabular}
+
+%% %% \vspace{0.25 cm}
+
+%% %% \begin{tabular}{p{0.45\linewidth} >{\centering\arraybackslash}p{0.15\linewidth} p{0.3\linewidth}}
+%% %% \textcolor{darkorange}{\bf HEP-specific software} & \textcolor{darkorange}{\bf install} & \textcolor{darkorange}{\bf tutorial} \\\hline
+%% %% \sout{PyROOT} & \sout{ROOT} & \sout{May 23} \\
+%% %% \sout{heppy and the like} & \sout{CMSSW} & {\it\scriptsize\sout{(I don't know them well enough)}} \\
+%% %% \textcolor{red}{$^*$}uproot (ROOT $\to$ Numpy) & pip & uproot.ipynb \\
+%% %% \textcolor{red}{$^*$}histbook (histogramming) & pip & histbook.ipynb \\
+%% %% \textcolor{red}{$^*$}OAMap (variable-length lists) & pip & oamap.ipynb \\
+%% %% iminuit (fitting) & pip & iminuit.ipynb \\
+%% %% GooFit (RooFit replacement) & pip & goofit.ipynb \\
+%% %% numpythia (Monte Carlo) & pip & numpythia.ipynb \\
+%% %% \end{tabular}
+
+%% %% \vspace{-3 cm}
+%% %% \hfill \tiny\textcolor{red}{$^*$made by me\hspace{-0.5 cm}}
+%% %% \vspace{3 cm}
+%% %% \end{frame}
 
 \end{document}
