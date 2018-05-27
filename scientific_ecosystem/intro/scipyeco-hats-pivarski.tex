@@ -55,11 +55,11 @@
 
 \begin{frame}{}
 \begin{center}
-\LARGE \textcolor{darkblue}{Big Data: we're not the only ones anymore}
+\LARGE \textcolor{darkblue}{Big Data: we're not the only ones doing it anymore}
 \end{center}
 \end{frame}
 
-\begin{frame}{{200~PB is a lot of data}\only<2>{, but for Amazon, it's two 18-wheelers}}
+\begin{frame}{{200~PB is a lot of data}\only<2>{, but for Amazon, it's two trucks}}
 \vspace{0.35 cm}
 \includegraphics[width=0.73\linewidth]{cern-200pb.png}
 
@@ -67,7 +67,7 @@
 \uncover<2->{\mbox{ } \hfill \includegraphics[width=0.7\linewidth]{aws-snowmobile.jpg}\hspace{-1 cm}}
 \end{frame}
 
-\begin{frame}{Data analysis software developed on both sides; hard to connect}
+\begin{frame}{Data analysis software developed in two separate worlds}
 \vspace{0.17 cm}
 \includegraphics[width=\linewidth]{separation-2.png}
 \end{frame}
@@ -80,7 +80,7 @@
 %% \includegraphics[width=\linewidth]{python-r-cpp-googletrends-dataset.png}
 %% \end{frame}
 
-\begin{frame}{Much of the Big Data software is developed for use in Python}
+\begin{frame}{Much of the Big Data software is developed for Python}
 \vspace{0.5 cm}
 \includegraphics[width=\linewidth]{python-r-cpp-googletrends-datascience.png}
 
@@ -105,13 +105,86 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{{\it Some} of what we need is readily available in this ecosystem}
+\vspace{-0.5 cm}
+\begin{columns}[t]
+\column{0.5\linewidth}
+\begin{center}
+\textcolor{darkblue}{\underline{\large What we can find off-the-shelf}}
 
+\vspace{0.18 cm}
+fast calculations
 
+\vspace{0.18 cm}
+fast data sharing with C/C++
 
+\vspace{0.18 cm}
+libraries of special functions, matrix math
 
+\vspace{0.18 cm}
+fitting/minimization, integration, differentiation, interpolation
+
+\vspace{0.18 cm}
+symbolic algebra
+
+\vspace{0.18 cm}
+advanced statistics
+
+\vspace{0.18 cm}
+machine learning
+
+\vspace{0.18 cm}
+graphics, advanced plotting
+
+\vspace{0.18 cm}
+graphical interfaces, user workflows
+
+\vspace{0.18 cm}
+parallel and distributed processing
+\end{center}
+
+\column{0.5\linewidth}
+\begin{center}
+\textcolor{darkblue}{\underline{\large What we must develop in-house}}
+
+\vspace{0.18 cm}
+reading/writing ROOT files
+
+\vspace{0.18 cm}
+integration with collaboration frameworks
+
+\vspace{0.18 cm}
+advanced histogramming
+
+\vspace{0.18 cm}
+efficient variable-length lists \\ (e.g.\ number of electrons per event)
+
+\vspace{0.18 cm}
+HEP functions (e.g.\ boost 4-vectors)
+
+\vspace{0.18 cm}
+HEP-style limit setting
+\end{center}
+\end{columns}
 \end{frame}
 
+\begin{frame}{Tutorials}
+\vspace{0.25 cm}
+\begin{enumerate}\setlength{\itemsep}{0.35 cm}
+\item \textcolor{darkblue}{numpy:} common language for bulk data exchange. Introduction to vectorization and fancy indexing.
+
+\item \textcolor{darkblue}{uproot$^*$:} implementation of ROOT I/O in Python and Numpy. Quick way to get your data into Numpy and everything else. Includes PyTorch example.
+
+\item \textcolor{darkblue}{histbook$^*$:} HEP-style histogramming in Numpy, Pandas, and Vega (web graphics).
+
+\item \textcolor{darkblue}{numba and oamap$^*$:} Numba is a just-in-time Python compiler for number crunching. OAMap (``object-array mapping'') extends it for HEP-style data.
+
+\item \textcolor{darkblue}{and more:} SymPy, iminuit, GooFit, NumPythia\ldots
+\end{enumerate}
+
+\vspace{0.5 cm}
+\textcolor{darkblue}{$^*$}\small part of my work to integrate HEP and the scientific Python ecosystem
+\end{frame}
 
 
 
@@ -416,68 +489,6 @@
 
 
 
-%% %% \begin{frame}{Scientific Python ecosystem is lacking some tools for HEP}
-%% %% \vspace{-0.5 cm}
-%% %% \begin{columns}[t]
-%% %% \column{0.5\linewidth}
-%% %% \begin{center}
-%% %% \textcolor{darkblue}{\underline{\large What we can find off-the-shelf}}
-
-%% %% \vspace{0.18 cm}
-%% %% fast data sharing with C/C++
-
-%% %% \vspace{0.18 cm}
-%% %% fast calculations of user functions
-
-%% %% \vspace{0.18 cm}
-%% %% libraries of special functions, matrix math
-
-%% %% \vspace{0.18 cm}
-%% %% fitting/minimization, integration, differentiation, interpolation
-
-%% %% \vspace{0.18 cm}
-%% %% symbolic algebra
-
-%% %% \vspace{0.18 cm}
-%% %% advanced statistics
-
-%% %% \vspace{0.18 cm}
-%% %% machine learning
-
-%% %% \vspace{0.18 cm}
-%% %% graphics, advanced plotting
-
-%% %% \vspace{0.18 cm}
-%% %% graphical interfaces, user workflows
-
-%% %% \vspace{0.18 cm}
-%% %% parallel and distributed processing
-%% %% \end{center}
-
-%% %% \column{0.5\linewidth}
-%% %% \begin{center}
-%% %% \textcolor{darkblue}{\underline{\large What we must develop in-house}}
-
-%% %% \vspace{0.18 cm}
-%% %% reading/writing ROOT files
-
-%% %% \vspace{0.18 cm}
-%% %% integration with collaboration frameworks
-
-%% %% \vspace{0.18 cm}
-%% %% advanced histogramming
-
-%% %% \vspace{0.18 cm}
-%% %% efficient variable-length lists \\ (e.g.\ number of electrons per event)
-
-%% %% \vspace{0.18 cm}
-%% %% HEP functions (e.g.\ boost 4-vectors)
-
-%% %% \vspace{0.18 cm}
-%% %% HEP-style limit setting
-%% %% \end{center}
-%% %% \end{columns}
-%% %% \end{frame}
 
 %% %% \begin{frame}{Prepared notebooks: things we can talk about}
 %% %% \vspace{0.3 cm}
