@@ -72,7 +72,7 @@
 %% \includegraphics[width=\linewidth]{separation-2.png}
 %% \end{frame}
 
-\begin{frame}{A lot of data analysis is in Python these days}
+\begin{frame}{A lot of data analysis is being in Python these days}
 \vspace{0.5 cm}
 \includegraphics[width=\linewidth]{python-r-cpp-googletrends-data.png}
 
@@ -80,7 +80,7 @@
 \includegraphics[width=\linewidth]{python-r-cpp-googletrends-dataset.png}
 \end{frame}
 
-\begin{frame}{A lot of data analysis is in Python these days}
+\begin{frame}{A lot of data analysis is being in Python these days}
 \vspace{0.5 cm}
 \includegraphics[width=\linewidth]{python-r-cpp-googletrends-datascience.png}
 
@@ -112,34 +112,34 @@
 \begin{center}
 \textcolor{darkblue}{\underline{\large What we can find off-the-shelf}}
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 fast calculations
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 fast data sharing with C/C++
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 libraries of special functions, matrix math
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 fitting/minimization, integration, differentiation, interpolation
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 symbolic algebra
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 advanced statistics
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 machine learning
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 graphics, advanced plotting
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 graphical interfaces, user workflows
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 parallel and distributed processing
 \end{center}
 
@@ -147,22 +147,22 @@ parallel and distributed processing
 \begin{center}
 \textcolor{darkblue}{\underline{\large What we must develop in-house}}
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 reading/writing ROOT files
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 integration with collaboration frameworks
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 advanced histogramming
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 efficient variable-length lists \\ (e.g.\ number of electrons per event)
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 HEP functions (e.g.\ boost 4-vectors)
 
-\vspace{0.18 cm}
+\vspace{0.175 cm}
 HEP-style limit setting
 \end{center}
 \end{columns}
@@ -170,20 +170,22 @@ HEP-style limit setting
 
 \begin{frame}{Tutorials}
 \vspace{0.25 cm}
-\begin{enumerate}\setlength{\itemsep}{0.35 cm}
-\item \textcolor{darkblue}{numpy:} common language for bulk data exchange. Introduction to vectorization and fancy indexing.
+\begin{enumerate}\setlength{\itemsep}{0.25 cm}
+\item \textcolor{darkblue}{Numpy:} common language for bulk data exchange. Introduction to vectorization and fancy indexing.
 
-\item \textcolor{darkblue}{uproot$^*$:} implementation of ROOT I/O in Python and Numpy. Quick way to get your data into Numpy and everything else. Includes PyTorch example.
+\item \textcolor{darkblue}{uproot\textcolor{darkorange}{\bf\small$^\text{*}$}:} implementation of ROOT I/O in Python and Numpy. Quick way to get your data into Numpy and everything else. Includes PyTorch example.
 
-\item \textcolor{darkblue}{histbook$^*$:} HEP-style histogramming in Numpy, Pandas, and Vega (web graphics).
+\item \textcolor{darkblue}{histbook\textcolor{darkorange}{\bf\small$^\text{*}$}:} HEP-style histogramming in Numpy, Pandas, and Vega (web graphics).
 
-\item \textcolor{darkblue}{numba and oamap$^*$:} Numba is a just-in-time Python compiler for number crunching. OAMap (``object-array mapping'') extends it for HEP-style data.
+\item \textcolor{darkblue}{Numba and OAMap\textcolor{darkorange}{\bf\small$^\text{*}$}:} Numba is a just-in-time Python compiler for number crunching. OAMap (``object-array mapping'') extends it for HEP-style data.
 
-\item \textcolor{darkblue}{and more:} SymPy, iminuit, GooFit, NumPythia\ldots
+\item \textcolor{darkblue}{and more:} SymPy, iminuit, NumPythia, pyjet, PyPDT\ldots
+
+\item \textcolor{darkblue}{LIGO:} discover a black hole with Numpy and Pandas.
 \end{enumerate}
 
-\vspace{0.5 cm}
-\textcolor{darkblue}{$^*$}\small part of my work to integrate HEP and the scientific Python ecosystem
+\vspace{0.25 cm}
+\textcolor{darkorange}{\small\bf$^\text{*}$my own projects}
 \end{frame}
 
 
