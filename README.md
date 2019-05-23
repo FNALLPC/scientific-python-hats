@@ -10,7 +10,7 @@ Whether you use Python, C++ or some combination of the two to complete your anal
 
 # Getting Started
 
-The setup/configuration of this HATS tutorial is documented at the [HATSatLPCSetup TWiki](https://twiki.cern.ch/twiki/bin/view/CMS/HATSatLPCSetup2018#JupyterSetup). This tutorial's repository is https://github.com/FNALLPC/scientific-python-hats.git
+The setup/configuration of this HATS tutorial is documented at the [HATSatLPCSetup TWiki](https://twiki.cern.ch/twiki/bin/view/CMS/HATSatLPCSetup2019#JupyterSetup). This tutorial's repository is https://github.com/FNALLPC/scientific-python-hats.git
 
 # Tutorials
 
