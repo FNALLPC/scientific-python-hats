@@ -46,15 +46,23 @@ from ROOT import *
 # let's combine all the input trees into one TChain 
 # Then we can pass that to our ROOT class to crunch
 ###
+print "Loading"
 chain = TChain(options.inTreeName)
 inFiles = []
-for inFile in filter(None,popen("xrdfs root://red-gridftp3.unl.edu/ ls -u "+options.inDir).read().split('\n')):
-  inFile.replace('red-gridftp3.unl.edu', 'cmsxrootd.fnal.gov')
+cmd = "xrdfs root://se11.accre.vanderbilt.edu:1095/ ls " + options.inDir
+print cmd
+for inFile in filter(None,popen(cmd).read().split('\n')):
+  inFile = inFile.replace('//','/')
+  inFile = "root://cmseos.fnal.gov/%s" % inFile
   if ".root" in inFile:
     inFiles.append(inFile)
+
 for sample in inFiles:
+  print "adding %s" % sample
   chain.Add(sample)
 
+
+print chain
 ###   HATS comment:
 # By default, gSystem.CompileMacro will compile your ROOT class, load it on its own, and then delete it
 # once your pyROOT script is closed. Instead, we want to be able to just compile it once, keep the
