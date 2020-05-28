@@ -49,11 +49,11 @@ from ROOT import *
 print "Loading"
 chain = TChain(options.inTreeName)
 inFiles = []
-cmd = "xrdfs root://se11.accre.vanderbilt.edu:1095/ ls " + options.inDir
+cmd = "xrdfs root://xrootd.accre.vanderbilt.edu:1094/ ls " + options.inDir
 print cmd
 for inFile in filter(None,popen(cmd).read().split('\n')):
   inFile = inFile.replace('//','/')
-  inFile = "root://cmseos.fnal.gov/%s" % inFile
+  inFile = "root://xrootd.accre.vanderbilt.edu/%s" % inFile
   if ".root" in inFile:
     inFiles.append(inFile)
 
